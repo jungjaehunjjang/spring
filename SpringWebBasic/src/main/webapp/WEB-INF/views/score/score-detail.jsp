@@ -78,7 +78,7 @@
             <li>#학점: ${s.grade}점</li>
           </ul>
           <div class="btn-group">
-            <a href="/basuc/score/list" class="list-btn">목록</a>
+            <a href="/basic/score/list" class="list-btn">목록</a>
             <a href="/basic/score/modify?stuNum=${s.stuNum}" class="mod-btn">수정</a>
           </div>
         </section>

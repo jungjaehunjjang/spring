@@ -34,7 +34,7 @@ public class ScoreService {
 	/*
 	 컨트롤러는 나에게 데이터베이스를 통해
 	 성적 정보 리스트를 가져오길 원하고 있어.
-	 근데 Repository는 학생 정보가 모두 포함딘 리스트를 주네?
+	 근데 Repository는 학생 정보가 모두 포함된 리스트를 주네?
 	 현재 여청에 어울리는 응답 화면에 맞는 DTO로 변경해서 주자.
 	 */
 	public List<ScoreListResponseDTO> getList() {
