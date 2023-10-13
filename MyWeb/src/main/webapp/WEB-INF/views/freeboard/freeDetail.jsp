@@ -1,6 +1,7 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+	<%@ include file="../include/header.jsp" %>
     <section>
         <div class="container">
             <div class="row">
@@ -20,20 +21,20 @@
                             </div>
                             <div class="form-group">
                                 <label>작성자</label>
-                                <input class="form-control" name="writer" value="${article.writer}"  readonly>
+                                <input class="form-control" name="writer" value="${article.writer}" readonly>
                             </div>    
                             <div class="form-group">
                                 <label>제목</label>
-                                <input class="form-control" name="title" value="${articel.title}" readonly>
+                                <input class="form-control" name="title" value="${article.title}" readonly >
                             </div>
 
                             <div class="form-group">
                                 <label>내용</label>
-                                <textarea class="form-control" rows="10" name="content"  readonly>value=${article.content}</textarea>
+                                <textarea class="form-control" rows="10" name="content" readonly>value="${article.content}"</textarea>
                             </div>
 
                             <button type="submit" class="btn btn-primary">변경</button>
-                            <button type="button" class="btn btn-dark">목록</button>
+                            <button type="button" class="btn btn-dark" onclick="location.href='/myweb/freeboard/freeList?pageNo=${p.pageNo}&amount=${p.amount}&keyword=${p.keyword}&condition=${p.condition}'">목록</button>
                     </form>
                 </div>
             </div>
@@ -97,17 +98,3 @@
 					<!-- 수정폼 id값을 확인하세요-->
 					<div class="reply-content">
 					<textarea class="form-control" rows="4" id="modalReply" placeholder="내용입력"></textarea>
-					<div class="reply-group">
-						<div class="reply-input">
-						    <input type="hidden" id="modalRno">
-							<input type="password" class="form-control" placeholder="비밀번호" id="modalPw">
-						</div>
-						<button class="right btn btn-info" id="modalModBtn">수정하기</button>
-						<button class="right btn btn-info" id="modalDelBtn">삭제하기</button>
-					</div>
-					</div>
-					<!-- 수정폼끝 -->
-				</div>
-			</div>
-		</div>
-	</div>
