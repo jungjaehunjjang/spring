@@ -17,10 +17,11 @@ import com.spring.myweb.freeboard.dto.page.Page;
 import com.spring.myweb.freeboard.entity.FreeBoard;
 import com.spring.myweb.freeboard.mapper.IFreeBoardMapper;
 
-@ExtendWith(SpringExtension.class) // 테스트 환경을 만들어 주는 Junit5객체 로딩
-@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml"})
-public class FreeBoardMapperTest {
 
+@ExtendWith(SpringExtension.class) //테스트 환경을 만들어 주는 Junit5 객체 로딩
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/db-config.xml"})
+public class FreeBoardMapperTest {
+	
 	@Autowired
 	private IFreeBoardMapper mapper;
 	
@@ -39,34 +40,33 @@ public class FreeBoardMapperTest {
 		for(int i=1; i<=300; i++) {
 			//when: 테스트 실제 상황 세팅
 			mapper.regist(FreeBoard.builder()
-									.title(" 페이징 테스트 제목 " + i)
+									.title("페이징 테스트 제목 " + i)
 									.writer("page1234")
 									.content("테스트 내용입니다. " + i)
-									.build());	
+									.build());
 		}
 		
 //		mapper.regist(FreeBoard.builder()
 //				.title("메롱메롱")
 //				.writer("kim1234")
 //				.content("테스트 중이니까 조용히 하세요!")
-//				.build());	
+//				.build());
 		
-		//then: 테스트 결과를 확인.
-		}
+		//then: 테스트 결과를 확인.	
+	}
 	
 	@Test
-	@DisplayName("조회 시 전체 글 목록이 올 것이고, 조회된 글의 개수는 10개일 것이다.")
+	@DisplayName("조회 시 전체 글 목록이 올 것이고, 조회된 글의 개수는 11개일 것이다.")
 	void getListTest() {
 		
 		//when
 		List<FreeBoard> list = mapper.getList(Page.builder()
-												.pageNo(4)
-												.amount(10)
-												.build());
+													.pageNo(4)
+													.amount(10)
+													.build());
 		for(FreeBoard board : list) {
 			System.out.println(board);
 		}
-		
 		System.out.println("조회된 글의 개수: " + list.size());
 		
 		//then
@@ -75,8 +75,8 @@ public class FreeBoardMapperTest {
 	}
 	
 	@Test
-	@DisplayName("글 번호가 11번인 글을 조회하면" 
-			+ "글쓴이는 'kim1234'일 것이고, 글제목은 '메롱메롱' 일 것이다.")
+	@DisplayName("글 번호가 11번인 글을 조회하면 "
+			+ "글쓴이는 'kim1234'일 것이고, 글 제목은 '메롱메롱' 일 것이다.")
 	void getContentTest() {
 		
 		//given
@@ -87,14 +87,13 @@ public class FreeBoardMapperTest {
 		
 		//then
 		assertEquals(board.getWriter(), "kim1234");
-		assertTrue(board.getTitle().equals("메롱메롱"));
+		assertTrue(board.getTitle().equals("메롱메롱"));	
 	}
 	
 	//글 번호가 1번인 글의 제목과 내용을 수정 후 다시 조회했을 때
 	//수정한 제목과 내용으로 바뀌었음을 단언하세요.
-	
 	@Test
-	@DisplayName("글 번호가 1번인 글의 제목가 내용을 수정후 조회하면"
+	@DisplayName("글 번호가 1번인 글의 제목과 내용을 수정 후 다시 조회했을 때 "
 			+ "수정한 제목과 내용으로 바뀌었음을 단언한다.")
 	void updateTest() {
 		//given
@@ -113,14 +112,14 @@ public class FreeBoardMapperTest {
 		assertEquals(board.getContent(), b.getContent());
 	}
 	
-	//글 번호가 2번인 글을 삭제한 후에 전체 목록을 조회했을때
+	//글 번호가 2번인 글을 삭제한 후에 전체 목록을 조회했을 때
 	//글의 개수는 11개일 것이고
 	//2번 글을 조회했을 때 null이 리턴됨을 단언하세요. -> assertNull(객체)
 	
 	@Test
-	@DisplayName("글 번호가 2번인 글을 삭제한 후에 전체 목록을 조회했을때"
+	@DisplayName("글 번호가 2번인 글을 삭제한 후에 전체 목록을 조회했을 때"
 			+ "	글의 개수는 11개일 것이고"
-			+ "	2번 글을 조회했을 때 null이 리턴되어야 한다.")
+			+ "	2번 글을 조회했을 때 null이 리턴되어야 한다.,")
 	void deleteTest() {
 		//given
 		int bno = 2;
@@ -134,9 +133,16 @@ public class FreeBoardMapperTest {
 	}
 	
 	
-	
-	
-	
-	
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+

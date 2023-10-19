@@ -37,7 +37,6 @@ public class FreeBoardService implements IFreeBoardService {
 		for(FreeBoard board : list) {
 			dtoList.add(new FreeListResponseDTO(board));
 		}
-		
 		return dtoList;
 	}
 	
@@ -54,10 +53,10 @@ public class FreeBoardService implements IFreeBoardService {
 	@Override
 	public void update(FreeModifyRequestDTO freeBoard) {
 		mapper.update(FreeBoard.builder()
-				.title(freeBoard.getTitle())
-				.content(freeBoard.getContent())
-				.bno(freeBoard.getBno())
-				.build());
+							.title(freeBoard.getTitle())
+							.content(freeBoard.getContent())
+							.bno(freeBoard.getBno())
+							.build());
 	}
 
 	@Override

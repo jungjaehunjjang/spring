@@ -11,7 +11,7 @@
                             <p>수정하기</p>
                         </div>
                         
-                        <form action="/myweb/freeboard/modify" method="post" name="updateForm">
+                        <form action="${pageContext.request.contextPath}/freeboard/modify" method="post" name="updateForm">
                             <div class="form-group">
                                 <label>번호</label>
                                 <input class="form-control" name="bno" value="${article.bno}" readonly>
@@ -39,14 +39,13 @@
             </div>
         </div>
         </section>
-      
-      
-     	<%@ include file="../include/footer.jsp" %>
+        
+       	<%@ include file="../include/footer.jsp" %>
 
         <script>
             //목록 이동 처리
-            document.getElementById('list=btn').onclick = function() {
-                location.href='/myweb/freeboard/freeList';
+            document.getElementById('list-btn').onclick = function() {
+                location.href='${pageContext.request.contextPath}/freeboard/freeList';
             }
 
             //form 태그는 메서드 없이 form 태그의 name으로 요소를 바로 취득할 수 있습니다.
@@ -57,21 +56,23 @@
                 //form 내부의 요소를 지목할 땐 name 속성으로 바로 지목이 가능합니다.
                 if($form.title.value === '') {
                     alert('제목은 필수 항목입니다.');
-                    return;  
+                    return;
                 } else if($form.content.value === '') {
-                    alert('내용을 뭐라도 작성해 주세요.');
+                    alert('내용을 뭐라도 작성해 주세요!');
                     return;
                 }
                 //문제가 없다면 form을 submit
-                $form.submit();
+                $form.submit(); 
             }
 
             //삭제 버튼 이벤트 처리
             document.getElementById('del-btn').onclick = () => {
                 if(confirm('정말 삭제하시겠습니까?')) {
-                    $form.setAttribute('action' , '/myweb/freeboard/delete');
+                    $form.setAttribute('action', '${pageContext.request.contextPath}/freeboard/delete');
                     $form.submit();
-                }
+                } 
             }
 
         </script>
+        
+      

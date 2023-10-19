@@ -21,3 +21,13 @@ public interface IUserMapper {
 	void updateUser(User user);
 	
 }
+
+
+
+
+
+
+
+
+
+

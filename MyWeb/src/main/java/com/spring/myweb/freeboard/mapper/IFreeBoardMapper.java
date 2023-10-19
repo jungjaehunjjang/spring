@@ -6,7 +6,7 @@ import com.spring.myweb.freeboard.dto.page.Page;
 import com.spring.myweb.freeboard.entity.FreeBoard;
 
 public interface IFreeBoardMapper {
-
+	
 	//글 등록
 	void regist(FreeBoard freeBoard);
 	
@@ -26,3 +26,11 @@ public interface IFreeBoardMapper {
 	void delete(int bno);
 	
 }
+
+
+
+
+
+
+
+

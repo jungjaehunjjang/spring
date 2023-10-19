@@ -11,9 +11,9 @@ import com.spring.myweb.freeboard.dto.page.Page;
 import com.spring.myweb.freeboard.mapper.IFreeBoardMapper;
 
 @ExtendWith(SpringExtension.class)
-@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@ContextConfiguration(locations = "file:src/main/webapp/WEB-INF/spring/db-config.xml")
 public class PageAlgorithmTest {
-
+	
 	@Autowired
 	private IFreeBoardMapper mapper;
 	
@@ -35,7 +35,7 @@ public class PageAlgorithmTest {
 		System.out.println("보정 전 끝 페이지 번호: " + endPage);
 		
 		//시작 페이지 번호 구하기
-		int beginPage = endPage - btnNum +1;
+		int beginPage = endPage - btnNum + 1;
 		System.out.println("시작 페이지 번호: " + beginPage);
 		
 		boolean prev = (beginPage == 1) ? false : true;
@@ -44,17 +44,29 @@ public class PageAlgorithmTest {
 		System.out.println("이전 버튼 활성화: " + prev);
 		System.out.println("다음 버튼 활성화: " + next);
 		
-		
 		if(!next) {
 			endPage = (int) Math.ceil(articleTotalCount / (double) cpp); 
 		}
 		
 		System.out.println("보정 후 끝 페이지 번호: " + endPage);
 		
+		
 	}
 	
 	
 	
 	
-	
+
 }
+
+
+
+
+
+
+
+
+
+
+
+

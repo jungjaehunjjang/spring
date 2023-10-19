@@ -25,13 +25,13 @@ public class PageCreator {
 	public PageCreator(Page page, int articleTotalCount) {
 		this.page = page;
 		this.articleTotalCount = articleTotalCount;
-		calcDataOfPage(); // 전달 완료 후 알고리즘 수행!
+		calcDataOfPage(); //전달 완료 후 알고리즘 수행!
 	}
 	
 	private void calcDataOfPage() {
 		
 		//끝 페이지 계산
-		this.end = (int) (Math.ceil(page.getPageNo() / (double) BUTTON_NUM) * BUTTON_NUM);
+		this.end = (int) (Math.ceil(page.getPageNo() / (double)BUTTON_NUM) * BUTTON_NUM);
 		
 		//시작 페이지 계산
 		this.begin = this.end - BUTTON_NUM + 1;
@@ -47,3 +47,21 @@ public class PageCreator {
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
